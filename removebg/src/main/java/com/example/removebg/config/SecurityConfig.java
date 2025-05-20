@@ -1,6 +1,7 @@
 package com.example.removebg.config;
 
 import com.example.removebg.security.ClerkJwtAuthFilter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.filter.CorsFilter;
 import org.springframework.context.annotation.Bean;
@@ -19,6 +20,8 @@ import java.util.List;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
+
+    @Autowired
     private ClerkJwtAuthFilter jwtAuthFilter;
 
     @Bean
