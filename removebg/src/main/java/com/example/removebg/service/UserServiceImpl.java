@@ -27,8 +27,10 @@ public class UserServiceImpl implements IUserService{
             if(userDTO.getCredits()!=null){
                 existingUser.setCredits(userDTO.getCredits());
             }
+            existingUser = userRepository.save(existingUser);
+            return mapToDTO(existingUser);
         }
-        UserEntity  newUser = mapToEntity(userDTO);
+        UserEntity newUser = mapToEntity(userDTO);
         userRepository.save(newUser);
         return mapToDTO(newUser);
     }
