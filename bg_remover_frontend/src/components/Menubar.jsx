@@ -12,6 +12,13 @@ const Menubar = () => {
                remove.<span className="text-gray-400 cursor-pointer">bg </span>
             </span>
        </div>
+
+
+       {/* Right side: Action buttons */}
+       <div className="hidden md:flex items-center space-x-4">
+        <button className="text-gray-700 hover:text-blue-500 font-medium">Login</button>
+        <button className="bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium px-4 py-2 rounded-full transition-all">Sign up</button>
+       </div>
     </nav>
   )
 }
