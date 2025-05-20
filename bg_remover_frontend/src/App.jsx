@@ -1,7 +1,9 @@
+import Menubar from "./components/Menubar";
 
 const App = () => {
   return (
     <div>
+      <Menubar />
     </div>
   )
 }
