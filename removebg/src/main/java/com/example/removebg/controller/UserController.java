@@ -20,14 +20,19 @@ public class UserController {
 
     @PostMapping
     public RemoveBgResponse createOrUpdateUser(@RequestBody UserDTO userDTO){
-        UserDTO user = userService.saveUser(userDTO);
-        return RemoveBgResponse.builder()
-                .success(true)
-                .data(user)
-                .statusCode(HttpStatus.CREATED)
-                .build();
-
-
+        try{
+            UserDTO user = userService.saveUser(userDTO);
+            return RemoveBgResponse.builder()
+                    .success(true)
+                    .data(user)
+                    .statusCode(HttpStatus.CREATED)
+                    .build();
+        } catch(Exception exception){
+            return RemoveBgResponse.builder()
+                    .success(false)
+                    .data(exception.getMessage())
+                    .statusCode(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .build();
+        }
     }
-
 }
