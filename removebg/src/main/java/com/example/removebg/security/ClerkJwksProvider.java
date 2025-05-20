@@ -2,6 +2,7 @@ package com.example.removebg.security;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -21,8 +22,14 @@ public class ClerkJwksProvider {
     private String jwksUrl;
 
     private final Map<String, PublicKey> keyCache = new HashMap<>();
-    private long lastFetchTime =0;
+
+    private long lastFetchTime;
     private static final long CACHE_TTL = 3600000;
+
+    public ClerkJwksProvider(@Value("${clerk.jwks-url}") String jwksUrl) {
+        this.jwksUrl = jwksUrl;
+        this.lastFetchTime = 0; // ✅ Explicitly set initial value
+    }
 
     public PublicKey getPublicKey(String kid) throws Exception{
 
