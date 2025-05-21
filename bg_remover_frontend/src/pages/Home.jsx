@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import BgRemovalSteps from '../components/BgRemovalSteps';
 import BgSlider from '../components/BgSlider';
 import Pricing from '../components/Pricing';
+import Testimonials from "../components/Testimonials";
 
 const Home = () => {
   return (
@@ -21,6 +22,7 @@ const Home = () => {
         <Pricing />
 
         {/* User testimonials section */}
+        <Testimonials />
 
         {/* Try Now Section */}
 
