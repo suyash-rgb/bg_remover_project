@@ -1,10 +1,16 @@
 import logo from './logo.png';
 import video_banner from './video_banner.mp4';
+import with_bg from './with_bg.png';
+import without_bg from './without_bg.png';
+import slide_icon from './slide_icon.png';
 
 
 export const assets = {
    logo,
    video_banner,
+   with_bg, 
+   without_bg,
+   slide_icon,
 }
 
 export const steps = [
@@ -24,3 +30,6 @@ export const steps = [
       description: "After selecting a new background color, download your photo and you're done.\nYou can also save your picture in the Photoroom App by creating an account."
    }
 ];
+
+
+export const categories = ["People","Products", "Animals", "Cars", "Graphics"];
