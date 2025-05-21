@@ -6,7 +6,7 @@
   background: transparent;
 }
 
-/*for chrome based browsers */
+/*for safari/chrome based browsers */
 .slider::-webkit-slider-thumb {
   appearance: none;
   width: 30px;
