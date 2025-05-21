@@ -1,18 +1,66 @@
+// Import assets
 import logo from './logo.png';
 import video_banner from './video_banner.mp4';
-import with_bg from './with_bg.png';
-import without_bg from './without_bg.png';
 import slide_icon from './slide_icon.png';
 
+// Import category images
+import people_with_bg from './people_with_bg.png';
+import people_without_bg from './people_without_bg.png';
 
+import animals_with_bg from './animals_with_bg.png';
+import animals_without_bg from './animals_without_bg.png';
+
+import products_with_bg from './products_with_bg.png';
+import products_without_bg from './products_without_bg.png';
+
+import cars_with_bg from './cars_with_bg.jpg'; // Verified JPG format
+import cars_without_bg from './cars_without_bg.png';
+
+import graphics_with_bg from './graphics_with_bg.png';
+import graphics_without_bg from './graphics_without_bg.png';
+
+// Export assets
 export const assets = {
    logo,
    video_banner,
-   with_bg, 
-   without_bg,
    slide_icon,
-}
+   people_with_bg,
+   people_without_bg,
+   animals_with_bg,
+   animals_without_bg,
+   products_with_bg,
+   products_without_bg,
+   cars_with_bg, // JPG format retained
+   cars_without_bg,
+   graphics_with_bg,
+   graphics_without_bg,
+};
 
+// Export categories with correct image references
+export const categories = {
+  People: {
+    with_bg: people_with_bg,
+    without_bg: people_without_bg,
+  },
+  Animals: {
+    with_bg: animals_with_bg,
+    without_bg: animals_without_bg,
+  },
+  Products: {
+    with_bg: products_with_bg,
+    without_bg: products_without_bg,
+  },
+  Cars: {
+    with_bg: cars_with_bg, // JPG format retained
+    without_bg: cars_without_bg,
+  },
+  Graphics: {
+    with_bg: graphics_with_bg,
+    without_bg: graphics_without_bg,
+  },
+};
+
+// Other exports remain unchanged
 export const steps = [
    {
       step: "Step 1",
@@ -30,10 +78,6 @@ export const steps = [
       description: "After selecting a new background color, download your photo and you're done.\nYou can also save your picture in the Photoroom App by creating an account."
    }
 ];
-
-
-export const categories = ["People","Products", "Animals", "Cars", "Graphics"];
-
 
 export const plans = [
   {
@@ -89,7 +133,7 @@ export const FOOTER_CONSTANTS = [
     logo: "https://img.icons8.com/fluent/30/000000/facebook-new.png"
   },
   {
-    url: "https://linkedin.com",
+    url: "https://www.linkedin.com/in/suyash-baoney-bb38b3290",
     logo: "https://img.icons8.com/fluent/30/000000/linkedin-2.png"
   },
   {
