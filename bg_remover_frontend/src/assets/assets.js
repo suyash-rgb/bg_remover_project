@@ -19,6 +19,8 @@ import cars_without_bg from './cars_without_bg.png';
 import graphics_with_bg from './graphics_with_bg.png';
 import graphics_without_bg from './graphics_without_bg.png';
 
+import credits from './credits.png';
+
 // Export assets
 export const assets = {
    logo,
@@ -34,6 +36,7 @@ export const assets = {
    cars_without_bg,
    graphics_with_bg,
    graphics_without_bg,
+   credits,
 };
 
 // Export categories with correct image references
