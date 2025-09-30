@@ -45,7 +45,7 @@ const Pricing = () => {
                   </li>
                 </ul>
                 <button className="w-full py-3 px-6 text-center text-white font-semibold rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 shadow-lg hover:from-purple-600 hover:to-indigo-600 transition duration-300 ease-in-out transform hover:scale-105 cursor-pointer">
-                  Choose Plan
+                  Choose Plan:
                 </button>
               </div>
             </div>
