@@ -10,10 +10,10 @@ public class UserEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique=true, nullable = false)
+    @Column(unique = true, nullable = false)
     private String clerkId;
 
-    @Column(unique=true, nullable = false)
+    @Column(unique = true, nullable = false)
     private String email;
     private String firstName;
     private String lastName;
@@ -21,16 +21,17 @@ public class UserEntity {
     private String photoUrl;
 
     @PrePersist
-    public void prePersist(){
-        if(credits==null){
-            credits=100;
+    public void prePersist() {
+        if (credits == null) {
+            credits = 100;
         }
     }
 
     public UserEntity() {
     }
 
-    public UserEntity(Long id, String clerkId, String email, String firstName, String lastName, Integer credits, String photoUrl) {
+    public UserEntity(Long id, String clerkId, String email, String firstName, String lastName, Integer credits,
+            String photoUrl) {
         this.id = id;
         this.clerkId = clerkId;
         this.email = email;
@@ -96,9 +97,9 @@ public class UserEntity {
         this.photoUrl = photoUrl;
     }
 
-    //Builder Pattern (Manual Implementation)
-    public static class Builder{
-        private long id;
+    // Builder Pattern (Manual Implementation)
+    public static class Builder {
+        private Long id;
         private String clerkId;
         private String email;
         private String firstName;
@@ -106,47 +107,47 @@ public class UserEntity {
         private Integer credits;
         private String photoUrl;
 
-        public Builder id(Long id){
-            this.id=id;
+        public Builder id(Long id) {
+            this.id = id;
             return this;
         }
 
-        public Builder clerkId(String clerkId){
-            this.clerkId=clerkId;
+        public Builder clerkId(String clerkId) {
+            this.clerkId = clerkId;
             return this;
         }
 
-        public Builder email(String email){
-            this.email=email;
+        public Builder email(String email) {
+            this.email = email;
             return this;
         }
 
-        public Builder firstName(String firstName){
-            this.firstName=firstName;
+        public Builder firstName(String firstName) {
+            this.firstName = firstName;
             return this;
         }
 
-        public Builder lastName(String lastName){
-            this.lastName=lastName;
+        public Builder lastName(String lastName) {
+            this.lastName = lastName;
             return this;
         }
 
-        public Builder credits(Integer credits){
-            this.credits=credits;
+        public Builder credits(Integer credits) {
+            this.credits = credits;
             return this;
         }
 
-        public Builder photoUrl(String photoUrl){
-            this.photoUrl=photoUrl;
+        public Builder photoUrl(String photoUrl) {
+            this.photoUrl = photoUrl;
             return this;
         }
 
-        public UserEntity build(){
+        public UserEntity build() {
             return new UserEntity(id, clerkId, email, firstName, lastName, credits, photoUrl);
         }
     }
 
-    public static Builder builder(){
+    public static Builder builder() {
         return new Builder();
     }
 

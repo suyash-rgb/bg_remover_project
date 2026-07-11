@@ -57,7 +57,7 @@ public class ClerkJwksProvider {
 
                 PublicKey publicKey = createPublicKey(n,e);
                 keyCache.put(kid, publicKey);
-            }
+            } 
         }
         lastFetchTime = System.currentTimeMillis();
     }
