@@ -3,8 +3,11 @@ package com.example.removebg.service;
 import com.example.removebg.dto.UserDTO;
 import com.example.removebg.entity.UserEntity;
 import com.example.removebg.repository.UserRepository;
+import com.fasterxml.jackson.databind.JsonNode;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.tags.EditorAwareTag;
 
 import java.util.Optional;
 
@@ -13,6 +16,8 @@ public class UserServiceImpl implements IUserService{
 
     @Autowired
     private UserRepository userRepository;
+
+
 
     @Override
     public UserDTO saveUser(UserDTO userDTO) {
@@ -35,6 +40,23 @@ public class UserServiceImpl implements IUserService{
         return mapToDTO(newUser);
     }
 
+    @Override
+    public UserDTO getUserByClerkId(String clerkId) {
+        UserEntity userEntity = userRepository.findByClerkId(clerkId)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+        return mapToDTO(userEntity);
+    }
+
+    @Override
+    public void deleteUserByClerkId(String clerkId){
+        UserEntity userEntity= userRepository.findByClerkId(clerkId)
+                .orElseThrow(()-> new UsernameNotFoundException("User not found"));
+        userRepository.delete(userEntity);
+
+    }
+
+
+
     private UserDTO mapToDTO(UserEntity newUser) {
         return UserDTO.builder()
                 .clerkId(newUser.getClerkId())
@@ -54,4 +76,7 @@ public class UserServiceImpl implements IUserService{
                 .photoUrl(userDTO.getPhotoUrl())
                 .build();
     }
+
+
+
 }

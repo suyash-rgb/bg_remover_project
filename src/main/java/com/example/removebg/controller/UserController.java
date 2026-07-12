@@ -9,10 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/users")
@@ -52,4 +52,38 @@ public class UserController {
             return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @GetMapping("/credits")
+    public ResponseEntity<?> getUserCredits(Authentication authentication){
+        RemoveBgResponse bgResponse = null;
+        try{
+            if(authentication.getName().isEmpty()||authentication.getName()==null){
+                bgResponse=RemoveBgResponse.builder()
+                        .statusCode(HttpStatus.FORBIDDEN)
+                        .data("User does not have permission/access to this resource")
+                        .success(false)
+                        .build();
+                return ResponseEntity.status(HttpStatus.FORBIDDEN).body(bgResponse);
+            }
+
+            String clerkId = authentication.getName();
+            UserDTO existingUser = userService.getUserByClerkId(clerkId);
+            Map<String, Integer> map = new HashMap<>();
+            map.put("credits", existingUser.getCredits());
+            bgResponse=RemoveBgResponse.builder()
+                    .statusCode(HttpStatus.OK)
+                    .data(map)
+                    .success(true)
+                    .build();
+        } catch(Exception e){
+            bgResponse = RemoveBgResponse.builder()
+                    .statusCode(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .data("Something went wrong")
+                    .success(false)
+                    .build();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(bgResponse);
+        }
+    }
+
 }
