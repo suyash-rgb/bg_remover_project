@@ -23,6 +23,7 @@ const UserSyncHandler = () => {
                     email: user.primaryEmailAddress.emailAddress,
                     firstName: user.firstName,
                     lastName: user.lastName,
+                    photoUrl: user.imageUrl,
                 };
 
                 await axios.post(backendUrl + "/api/users", userData, { headers: { "Authorization": `Bearer ${token}` } })
