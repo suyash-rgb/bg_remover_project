@@ -9,7 +9,7 @@ const UserSyncHandler = () => {
     const { isLoaded, isSignedIn, getToken } = useAuth();
     const { user } = useUser();
     const [synced, setSynced] = useState(false);
-    const { backendUrl } = useContext(AppContext);
+    const { backendUrl, loadUserCredits } = useContext(AppContext);
 
     useEffect(() => {
         const saveUser = async () => {
@@ -34,7 +34,7 @@ const UserSyncHandler = () => {
                 //     toast.error("Unable to create account. Please try again. ")
                 // }
                 setSynced(true); //prevent re-posting
-                //TODO: update the user creadits  api call 
+                await loadUserCredits();
             } catch (error) {
                 console.error("User sync failed", error);
                 toast.error("Unable to create account. Please try again. ")
