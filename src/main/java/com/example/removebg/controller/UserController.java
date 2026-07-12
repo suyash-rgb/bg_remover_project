@@ -54,11 +54,11 @@ public class UserController {
     }
 
     @GetMapping("/credits")
-    public ResponseEntity<?> getUserCredits(Authentication authentication){
+    public ResponseEntity<?> getUserCredits(Authentication authentication) {
         RemoveBgResponse bgResponse = null;
-        try{
-            if(authentication.getName().isEmpty()||authentication.getName()==null){
-                bgResponse=RemoveBgResponse.builder()
+        try {
+            if (authentication.getName().isEmpty() || authentication.getName() == null) {
+                bgResponse = RemoveBgResponse.builder()
                         .statusCode(HttpStatus.FORBIDDEN)
                         .data("User does not have permission/access to this resource")
                         .success(false)
@@ -70,12 +70,13 @@ public class UserController {
             UserDTO existingUser = userService.getUserByClerkId(clerkId);
             Map<String, Integer> map = new HashMap<>();
             map.put("credits", existingUser.getCredits());
-            bgResponse=RemoveBgResponse.builder()
+            bgResponse = RemoveBgResponse.builder()
                     .statusCode(HttpStatus.OK)
                     .data(map)
                     .success(true)
                     .build();
-        } catch(Exception e){
+            return ResponseEntity.status(HttpStatus.OK).body(bgResponse);
+        } catch (Exception e) {
             bgResponse = RemoveBgResponse.builder()
                     .statusCode(HttpStatus.INTERNAL_SERVER_ERROR)
                     .data("Something went wrong")
@@ -85,5 +86,4 @@ public class UserController {
                     .body(bgResponse);
         }
     }
-
 }
