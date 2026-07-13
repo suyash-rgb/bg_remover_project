@@ -4,7 +4,7 @@ import { AppContext } from "../context/AppContext"
 const Result = () => {
     const { image, resultImage } = useContext(AppContext)
     return (
-        <div className="mx-4 my-3 lg:mx-44 mt14 min-h-[75wh]">
+        <div className="mx-4 my-3 lg:mx-44 mt-14 min-h-[75wh]">
 
             {/*image container */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -12,7 +12,7 @@ const Result = () => {
                 {/*left side */}
                 <div className="flex flex-col">
                     <p className="font-semibold text-gray-600 mb-2">Original</p>
-                    <img src={assets.people_org} alt="" className="rounded-md w-full object-cover" />
+                    <img src={image ? URL.createObjectURL(image) : ""} alt="" className="rounded-md w-full object-cover" />
                 </div>
 
                 {/*right side */}
@@ -21,7 +21,7 @@ const Result = () => {
                         Background Removed
                     </p>
                     <div className="rounded-md border border-gray-300 h-full bg-layer relative overflow-hidden">
-                        <img src={assets.people_org} alt="" className="w-full object-cover" />
+                        <img src={resultImage ? resultImage : ""} alt="" className="w-full object-cover" />
                         {!resultImage && image && (
                             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                                 <div className="border-4 border-indigo-600 rounded-full h-12 w-12 border-t-transparent animate-spin ">
