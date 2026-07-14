@@ -1,10 +1,7 @@
 import axios from "axios";
-import { useContext } from "react";
-import { AppContext } from "../context/AppContext";
+import toast from "react-hot-toast";
 
-const { backendUrl } = useContext(AppContext);
-
-export const placeholder = async ({ planId, getToken, onSuccess }) => {
+export const placeholder = async ({ planId, getToken, onSuccess, backendUrl }) => {
     try {
         const token = await getToken();
         const response = await axios.post(`${backendUrl}/orders?planId=${planId}`,
@@ -17,7 +14,7 @@ export const placeholder = async ({ planId, getToken, onSuccess }) => {
     }
 }
 
-const intializePayment = ({ order, getToken, onSuccess }) => {
+const intializePayment = ({ order, getToken, onSuccess, backendUrl }) => {
     const options = {
         key: import.meta.env.VITE_RAZORPAY_KEY_ID,
         amount: order.amount,

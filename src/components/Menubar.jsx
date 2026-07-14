@@ -17,6 +17,7 @@ const Menubar = () => {
   const { openSignIn, openSignUp } = useClerk();
   const { user } = useUser();
   const { credit } = useContext(AppContext);
+  const navigate = useNavigate();
 
   const openRegister = () => {
     setMenuOpen(false);
@@ -57,10 +58,14 @@ const Menubar = () => {
 
             {/* Background only for credits */}
             <div className="flex items-center gap-2 bg-blue-100 px-4 sm:px-5 py-1 5 sm:py-2 5 rounded-full hover:scale-105 transition-all duration-500 cursor-pointer">
-              <img src={assets.credits} alt="credits" height={24} width={24} />
-              <p className="text-xs sm:text-sm font-medium text-gray-600">
-                Credits: {credit}
-              </p>
+              <button
+                className="flex items-center gap-2 bg-blue-100 px-4 py-1 5 sm:py-2 5 rounded-full hover:scale-105 transition-all duration-500 cursor-pointer"
+                onClick={() => navigate("/pricing")} >
+                <img src={assets.credits} alt="credits" height={24} width={24} />
+                <p className="text-xs sm:text-sm font-medium text-gray-600">
+                  Credits: {credit}
+                </p>
+              </button>
             </div>
 
             {/* Username without background*/}
@@ -95,7 +100,10 @@ const Menubar = () => {
 
           <SignedIn>
             <div className="flex itmes center gap-2 sm:gap-3">
-              <button className="flex items-center gap-2 bg-blue-100 px-4 py-1 5 sm:py-2 5 rounded-full hover:scale-105 transition-all duration-500 cursor-pointer">
+              <button
+                className="flex items-center gap-2 bg-blue-100 px-4 py-1 5 sm:py-2 5 rounded-full hover:scale-105 transition-all duration-500 cursor-pointer"
+                onClick={() => navigate("/pricing")}
+              >
                 <img src={assets.credits} alt="credits" height={24} width={24} />
                 <p className="text-xs sm:text-sm font-medium text-gray-600">
                   Credits:{credit}

@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { useAuth, useClerk } from '@clerk/clerk-react';
+import { AppContext } from '../context/AppContext';
 import { plans } from '../assets/assets';
 import { placeholder } from '../service/OrderService';
-
-
-
 
 const Pricing = () => {
 
