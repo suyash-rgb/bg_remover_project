@@ -80,7 +80,7 @@ public class UserDTO {
         private String photoUrl;
         private Integer credits;
 
-        public Builder clerkId(String clerkiId){
+        public Builder clerkId(String clerkId){
             this.clerkId=clerkId;
             return this;
         }
