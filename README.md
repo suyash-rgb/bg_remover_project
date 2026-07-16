@@ -1,6 +1,6 @@
-# BG Remover SaaS: AI-Powered Background Removal Tool
+# VanishBG: AI-Powered Background Removal Tool (remove.bg clone)
 
-BG Remover SaaS is a full-stack, AI-driven web application that allows users to seamlessly remove backgrounds from images. Built with modern web technologies and a secure, scalable backend, the platform features a credit-based system, secure authentication, and a smooth checkout process for purchasing additional credits.
+VanishBG is a full-stack, AI-driven web application that allows users to seamlessly remove backgrounds from images. Built with modern web technologies and a secure, scalable backend, the platform features a credit-based system, secure authentication, and a smooth checkout process for purchasing additional credits.
 
 ![Landing Page](https://via.placeholder.com/1000x500?text=Landing+Page+Screenshot)
 
