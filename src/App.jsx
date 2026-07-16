@@ -5,8 +5,9 @@ import { BrowserRouter } from "react-router-dom";
 import { Route, Routes } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import UserSyncHandler from "./components/UserSyncHandler";
-import { RedirectToSignIn, SignedIn } from "@clerk/clerk-react";
+import { RedirectToSignIn, SignedIn, SignedOut } from "@clerk/clerk-react";
 import BuyCredits from "./pages/BuyCredits";
+import Result from "./pages/Result";
 
 const App = () => {
   return (
