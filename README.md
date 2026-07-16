@@ -1,15 +1,12 @@
 # BG Remover SaaS: AI-Powered Background Removal Tool
 
-![BG Remover Banner](https://img.shields.io/badge/BG_Remover-AI--Powered--SaaS-blueviolet?style=for-the-badge)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
-
 BG Remover SaaS is a full-stack, AI-driven web application that allows users to seamlessly remove backgrounds from images. Built with modern web technologies and a secure, scalable backend, the platform features a credit-based system, secure authentication, and a smooth checkout process for purchasing additional credits.
 
 ![Landing Page](https://via.placeholder.com/1000x500?text=Landing+Page+Screenshot)
 
 ## 🚀 Key Features
 
-- **AI Background Removal**: Upload images and instantly remove backgrounds with high precision.
+- **Background Removal**: Upload images and instantly remove backgrounds with high precision.
 - **Credit-Based System**: Users consume credits for each background removal.
 - **Secure Authentication**: Integrated with Clerk for seamless, secure user sign-ups and logins.
 - **Payment Gateway Integration**: Built-in Razorpay integration allows users to easily purchase credit packages.
@@ -63,7 +60,7 @@ cd removebg-backend
 #### 2. Environment Configuration
 Update your `application.properties` (or `.env`) file in the backend to match your setup:
 ```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/removebg_db
+spring.datasource.url=jdbc:mysql://localhost:3306/your_db_name
 spring.datasource.username=your_db_user
 spring.datasource.password=your_db_password
 clerk.webhook.secret=your_clerk_webhook_secret
