@@ -27,6 +27,7 @@ const AppContextProvider = (props) => {
                 toast.error("Error loading credits");
             }
         } catch (error) {
+            console.error(error);
             toast.error("Failed to load user credits");
         }
     }

@@ -1,8 +1,8 @@
 import React from 'react';
 import { assets } from '../assets/assets';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Menu, X } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { SignedIn } from '@clerk/clerk-react';
 import { SignedOut } from '@clerk/clerk-react';
 import { UserButton } from '@clerk/clerk-react';
